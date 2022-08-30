@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -6,18 +6,17 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function MediaCard() {
-
-  const [contador, setContador] = useState(0)
+const ItemCount = ({ initial, stock, onAdd }) => {
+  const [contador, setContador] = useState(initial)
 
   const sumar = () => {
-    setContador(contador + 1)
+    if (contador < stock) {
+      setContador(contador + 1);
+    }
   }
 
   const restar = () => {
-    if (contador <= 0) {
-      contador = 0
-    } else {
+    if (contador > 0) {
       setContador(contador - 1)
     }
   }
@@ -51,7 +50,7 @@ export default function MediaCard() {
         }}>
           <Button size="small" onClick={restar}>-</Button>
           <div>
-            <button>Comprar</button>
+            <button onClick={onAdd}>Agregar al carrito</button>
             <div>
               <span>Cantidad: {contador}</span>
             </div>
@@ -61,4 +60,7 @@ export default function MediaCard() {
       </Card>
     </div>
   );
+
 }
+
+export default ItemCount;
