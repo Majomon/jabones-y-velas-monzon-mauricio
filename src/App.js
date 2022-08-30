@@ -1,9 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import NavBar from "./components/NavBar";
 import ItemListContainer from './components/ItemListContainer';
 import { ThemeProvider } from '@mui/material';
 import theme from "./MuiTheme"
+import Productos from "./components/Productos"
+import NavBar from "./components/NavBar";
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
         <NavBar />
         <ItemListContainer greeting="Hola mundo :D"
         />
+        <Productos />
       </div>
     </ThemeProvider>
   );
