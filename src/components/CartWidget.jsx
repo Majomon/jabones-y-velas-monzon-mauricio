@@ -13,3 +13,5 @@ const CartWidget = ({ counter }) => {
 }
 
 export default CartWidget
+
+

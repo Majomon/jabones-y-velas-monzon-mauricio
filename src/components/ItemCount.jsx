@@ -32,8 +32,8 @@ const ItemCount = ({ initial, stock, onAdd }) => {
         <CardMedia
           component="img"
           height="140"
-        /*           image="/static/images/cards/contemplative-reptile.jpg"
-                  alt="green iguana" */
+          image="https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2021/04/recetas-de-jabones-artesanales-igoriss.jpg"
+                  alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
