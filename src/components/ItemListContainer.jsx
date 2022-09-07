@@ -32,7 +32,6 @@ const ItemListContainer = (props) => {
 
       </div>
       <ItemList listaProductos={listaProductos}/>
-      
     </>
   )
 }
