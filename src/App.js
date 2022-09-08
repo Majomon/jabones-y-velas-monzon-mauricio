@@ -7,7 +7,7 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemCount from "./components/ItemCount"
 import Promesas from './test/Promesas';
 import ActividadPromesas from './test/ActividadPromesas';
-import FetchLayout from './test/FetchLayout';
+import FetchContainer from './test/FetchContainer';
 
 
 
@@ -22,7 +22,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <FetchLayout/>
+        <FetchContainer/>
+    {/*     <ActividadPromesas/> */}
         <NavBar />
         <ItemListContainer greeting="Hola mundo :D"
         />
