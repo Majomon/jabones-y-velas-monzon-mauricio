@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import Typography from '@mui/material/Typography';
 import ItemList from './ItemList';
-import products from './products';
-import { customFetch } from './customFetch';
+import { data } from "../mocks/DataBase"
 
-const ItemListContainer = (props) => {
-  const { greeting } = props
+const ItemListContainer = ({ greeting }) => {
   const [listaProductos, setlistaProductos] = useState([]);
+  const [cargando, setCargando] = useState();
 
 
   useEffect(() => {
-    customFetch(products)
-      .then(data => setlistaProductos(data))
-
+    data
+      .then((res) => setlistaProductos(res))
+      .catch((error) => console.log(error))
+      .finally(() => setCargando(false))
   }, [])
-
+  console.log(listaProductos);
   return (
+
     <>
       <div>
         <Typography
@@ -31,7 +32,12 @@ const ItemListContainer = (props) => {
         </Typography>
 
       </div>
-      <ItemList listaProductos={listaProductos}/>
+      <div>
+
+        {cargando ? <p>Cargando...</p> : <ItemList listaProductos={listaProductos} />}
+
+      </div>
+
     </>
   )
 }

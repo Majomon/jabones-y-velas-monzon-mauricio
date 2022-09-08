@@ -27,6 +27,15 @@ const products = [
         stock: 10,
         img: "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2021/04/recetas-de-jabones-artesanales-igoriss.jpg"
     },
-];
+]
 
-export default products
+export const data = new Promise((resolve,reject)=>{
+    let condition = true
+    setTimeout(()=>{
+        if (condition){
+            resolve(products)
+        }else{
+            reject("Algo esta roto")
+        }
+    },2000)
+})

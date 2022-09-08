@@ -22,14 +22,13 @@ const Item = ({product}) => {
             {product.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            Descripcion del producto {product.name}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          Boton
         </Button>
       </CardActions>
       <div>

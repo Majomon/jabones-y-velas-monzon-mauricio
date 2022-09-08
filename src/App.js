@@ -4,11 +4,9 @@ import { ThemeProvider } from '@mui/material';
 import theme from "./MuiTheme"
 import NavBar from "./components/NavBar";
 import ItemListContainer from './components/ItemListContainer';
-import ItemCount from "./components/ItemCount"
-import Promesas from './test/Promesas';
-import ActividadPromesas from './test/ActividadPromesas';
-import FetchContainer from './test/FetchContainer';
-
+import ItemCount from "./components/ItemCount";
+/* import FetchContainer from './test/FetchContainer'; */
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 
 
@@ -22,11 +20,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <FetchContainer/>
-    {/*     <ActividadPromesas/> */}
+        {/*         <FetchContainer/>
+ */}
+        {/*     <ActividadPromesas/> */}
         <NavBar />
-        <ItemListContainer greeting="Hola mundo :D"
-        />
+        <ItemListContainer greeting="Hola Mundo"/>
+        <ItemDetailContainer/>
         <ItemCount stock={10} initial={1} onAdd={onAdd} />
       </div>
     </ThemeProvider>
