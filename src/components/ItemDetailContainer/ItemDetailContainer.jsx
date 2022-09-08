@@ -4,16 +4,19 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     data
-    .then((res)=>setProducto(res[3]))
+    .then((res)=>setProducto(res.find((item)=>item.id===1)))
+    .catch((error)=>console.log(error))
+    .finally(()=>setLoading(false))
   })
 
 
   return (
     <div>
-      <ItemDetail producto={producto} />
+      {loading?<p>Loading...</p> : <ItemDetail producto={producto} />}
 {/*       <ItemCount stock={10} initial={1} onAdd={onAdd} /> */}
     </div>
   )
