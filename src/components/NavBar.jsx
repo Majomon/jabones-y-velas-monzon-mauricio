@@ -11,16 +11,17 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CartWidget from "./CartWidget"
+import { Link as RouterLink } from 'react-router-dom';
 
-const pages = ['Inicio', 'Productos', 'Contactanos'];
+const pages = ['Inicio', 'Productos', 'Detalle','Contactanos'];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
@@ -78,9 +79,11 @@ const NavBar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
+                                <RouterLink key={page} to={`/${page}`}>
+                                    <MenuItem onClick={handleCloseNavMenu} >
+                                        <Typography textAlign="center">{page}</Typography>
+                                    </MenuItem>
+                                </RouterLink>
                             ))}
                         </Menu>
                     </Box>
@@ -106,6 +109,7 @@ const NavBar = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
+                                component={RouterLink} to={`/${page}`}
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -114,12 +118,15 @@ const NavBar = () => {
                             </Button>
                         ))}
                     </Box>
-                        
-                    <box sx={{flexGrow:0}}>
 
-                    <CartWidget counter={5}/>
+                    <box sx={{ flexGrow: 0 }}>
+                        <div div style={{
+                            color:"black"
+                        }}>
+                            <CartWidget counter={10} />
+
+                        </div>
                     </box>
-
                 </Toolbar>
             </Container>
         </AppBar>

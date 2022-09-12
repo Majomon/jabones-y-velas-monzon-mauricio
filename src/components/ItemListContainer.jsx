@@ -5,7 +5,7 @@ import { data } from "../mocks/DataBase"
 
 const ItemListContainer = ({ greeting }) => {
   const [listaProductos, setlistaProductos] = useState([]);
-  const [cargando, setCargando] = useState();
+  const [cargando, setCargando] = useState(true);
   
   useEffect(() => {
     data

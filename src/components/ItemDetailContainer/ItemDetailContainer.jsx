@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     data
-    .then((res)=>setProducto(res.find((item)=>item.id===1)))
+    .then((res)=>setProducto(res.find((item)=>item.id===3)))
     .catch((error)=>console.log(error))
     .finally(()=>setLoading(false))
   })

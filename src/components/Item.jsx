@@ -3,15 +3,23 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea } from '@mui/material';
+import ItemCount from './ItemCount';
 
 const Item = ({ product }) => {
-  /*   return (
-      <div>{product.name}</div>
-    ) */
+  const onAdd = () => {
+    console.log("Agregaste al carrito");
+  }
   return (
-    <div>
+    <div style={{
+      width: "350px",
+      padding: "1.5rem",
+      border: "solid 1px black",
 
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center"
+    }}>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardMedia
@@ -24,20 +32,15 @@ const Item = ({ product }) => {
               {product.name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Descripcion del producto {product.name}
+              Descripcion del producto {product.description}
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Boton
-          </Button>
-        </CardActions>
-        <div>
-          <p>Stock: {product.stock}</p>
-        </div>
+        <p>Stock: {product.stock}</p>
+        <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
       </Card>
     </div>
+
   );
 }
 
