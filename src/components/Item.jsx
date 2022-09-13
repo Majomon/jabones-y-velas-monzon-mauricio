@@ -4,40 +4,39 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import ItemCount from './ItemCount';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+/* import ItemCount from './ItemCount'; */
 
 const Item = ({ product }) => {
-  const onAdd = () => {
-    console.log("Agregaste al carrito");
-  }
-  return (
-    <div style={{
-      width: "350px",
-      padding: "1.5rem",
-      border: "solid 1px black",
 
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center"
-    }}>
+  const {id,name,description,stock,price,img,alt}=product
+  const navegar=useNavigate()
+  return (
+    <div className='cardItem'>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardMedia
             component="img"
             height="140"
-            image={product.img}
+            image={img}
+            alt={alt}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {product.name}
+              {name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Descripcion del producto {product.description}
+              Descripcion del producto {description}
             </Typography>
           </CardContent>
         </CardActionArea>
-        <p>Stock: {product.stock}</p>
-        <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+        <div>
+          <p>Precio: ${price}</p>
+          <p>Stock: {stock}</p>
+          <Button size="small" onClick={()=>navegar(`/detalle/${id}`)}>Ver mas</Button>
+        </div>
+        {/*         <ItemCount stock={product.stock} initial={1} onAdd={onAdd} /> */}
       </Card>
     </div>
 

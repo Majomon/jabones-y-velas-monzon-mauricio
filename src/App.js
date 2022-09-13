@@ -32,12 +32,13 @@ function App() {
 
     <BrowserRouter>
       {/* Aqui van los componentes que estan presentes en todas las rutas */}
-      <NavBar />
+      <NavBar/>
 
       <Routes>
+        <Route path="/" element={<ItemListContainer/>} />
         <Route path="/Inicio" element={<ItemListContainer />} />
-        <Route path="/Productos/:id" element={<ItemListContainer />} />
-        <Route path="/Detalle/:id" element={<ItemDetailContainer/>} />
+        <Route path="/productos/:id" element={<ItemListContainer />} />
+        <Route path="/detalle/:id" element={<ItemDetailContainer />} />
       </Routes>
 
       {/* Aqui va el Footer, tambien afuera de las rutas*/}

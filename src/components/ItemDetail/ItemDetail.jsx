@@ -6,6 +6,8 @@ const ItemDetail = ({ producto }) => {
     const onAdd =()=>{
         console.log("Agregaste al carrito");
     }
+/* 
+    const {name,category,description,stock,price}=producto */
 
     return (
         <div>
