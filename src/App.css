@@ -7,17 +7,10 @@
   pointer-events: none;
 }
 
-.cardContainer {
+.item-qty{
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 1rem;
-}
-
-.cardItem {
-  width: 300px;
-  padding: 2rem .3rem;
-  text-align: center;
+  flex-direction: row;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -45,7 +38,6 @@
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }

@@ -1,46 +1,57 @@
 import React from 'react'
 import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
-/* import ItemCount from './ItemCount'; */
+import ItemCount from './ItemCount';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link as RouterLink}   from 'react-router-dom'; 
 
-const Item = ({ product }) => {
+function Item({product}) {
 
-  const {id,name,description,stock,price,img,alt}=product
-  const navegar=useNavigate()
+  const onAdd = (cant) =>
+  toast.success(`Agregaste al carrito ${cant} 👌`, {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+
   return (
-    <div className='cardItem'>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            height="140"
-            image={img}
-            alt={alt}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Descripcion del producto {description}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <div>
-          <p>Precio: ${price}</p>
-          <p>Stock: {stock}</p>
-          <Button size="small" onClick={()=>navegar(`/detalle/${id}`)}>Ver mas</Button>
-        </div>
-        {/*         <ItemCount stock={product.stock} initial={1} onAdd={onAdd} /> */}
-      </Card>
-    </div>
+    <Card sx={{ maxWidth: 345 }} >
+      <RouterLink to={`/product/${product.id}`}>
+      <CardMedia
+        component="img"
+        alt={product.alt}
+        height="200"
+        image={product.pictureUrl}
+      />
+      </RouterLink>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div" textAlign={'center'}>
+          {product.title}
+        </Typography>
+        <Typography variant="h6" color="text.secondary" textAlign={'center'}>
+          $ {product.price}
+        </Typography>
+        <Typography variant="h6" color="text.secondary" textAlign={'center'}>
+          {product.description}
+        </Typography>
+      </CardContent>
+ 
+      <CardActions>
+        <ItemCount stock={product.stock}
+        initial={product.initial}
+        onAdd={onAdd}/>
+      </CardActions>
+    </Card>
 
-  );
+  )
 }
 
 export default Item

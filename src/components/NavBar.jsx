@@ -9,15 +9,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import CartWidget from "./CartWidget"
+import CartWidget from './CartWidget';
 import { Link as RouterLink } from 'react-router-dom';
 
-const pages = ['Inicio', 'Productos', 'Detalle','Contactanos'];
+
+const pages = ['jabones', 'velas', 'blog', 'contacto'];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -27,17 +26,18 @@ const NavBar = () => {
         setAnchorElNav(null);
     };
 
+
+
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
-                <Toolbar disableGutters >
-                    {/*        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+                <Toolbar disableGutters>
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
+                        component={RouterLink} to={`/`}
                         sx={{
-                            mr: 5,
+                            mr: 2,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
@@ -46,7 +46,7 @@ const NavBar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        <div>ByMabe</div>
+                        By Mabe
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -79,7 +79,7 @@ const NavBar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <RouterLink key={page} to={`/${page}`}>
+                                <RouterLink key={page} to={`/category/${page}`}>
                                     <MenuItem onClick={handleCloseNavMenu} >
                                         <Typography textAlign="center">{page}</Typography>
                                     </MenuItem>
@@ -87,29 +87,27 @@ const NavBar = () => {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href=""
+                        component={RouterLink} to={`/`}
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
                             fontFamily: 'monospace',
                             fontWeight: 700,
-                            letterSpacing: '.3rem',
+                            letterSpacing: '.1rem',
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
-                        ByMabe
+                        By Mabe
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
-                                component={RouterLink} to={`/${page}`}
+                                component={RouterLink} to={`/category/${page}`}
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -118,15 +116,7 @@ const NavBar = () => {
                             </Button>
                         ))}
                     </Box>
-
-                    <box sx={{ flexGrow: 0 }}>
-                        <div div style={{
-                            color:"black"
-                        }}>
-                            <CartWidget counter={10} />
-
-                        </div>
-                    </box>
+                    <CartWidget />
                 </Toolbar>
             </Container>
         </AppBar>

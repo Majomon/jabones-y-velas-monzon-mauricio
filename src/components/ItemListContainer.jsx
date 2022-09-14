@@ -1,44 +1,55 @@
-import React, { useState, useEffect } from 'react'
-/* import Typography from '@mui/material/Typography'; */
-import ItemList from './ItemList';
-import { data } from "../mocks/DataBase"
+import React, { useState, useEffect } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import ItemList from "./ItemList";
+import products from "../items"
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({ greeting }) => {
-  const [listaProductos, setlistaProductos] = useState([]);
-  const [cargando, setCargando] = useState(true);
+
+export default function ItemListContainer() {
+  const { idcategory} = useParams(); 
+
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    data
-      .then((res) => setlistaProductos(res))
-      .catch((error) => console.log(error))
-      .finally(() => setCargando(false))
-  }, [])
+    const itemsArray = new Promise((res, rej) => {
+      setTimeout(() => {
+        res(products);
+      }, 2000);
+    });
 
-  
-  return (
+    
 
-    <>
-      <div>
-{/*         <div>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              letterSpacing: '.3rem',
-              textDecoration: 'none',
-            }}
-          >
-            <p>{greeting}</p>
-          </Typography>
+    if(!idcategory){
+      itemsArray
+      .then((res) => {
+        setItems(res);
+      })
+      .catch((err) => {
+        console.log("No se pudo cargar");
+      })
+      .finally((loading) => {
+        setLoading(false);
+      });
+    }else{
+      itemsArray
+      .then((res) => {
+        
+        setItems(res.filter((product)=>product.idcategory === idcategory));
+      })
+      .catch((err) => {
+        console.log("No se pudo cargar");
+      })
+      .finally((loading) => {
+        setLoading(false);
+      });
+    }
 
-        </div> */}
-        <div className='cardContainer'>
-          {cargando ? <p>Cargando...</p> : <ItemList listaProductos={listaProductos} />}
-        </div>
-      </div>
-    </>
-  )
+  }, [idcategory]);
+
+  if (loading) {
+    return <div className="center full-div"><CircularProgress /></div>;
+  } else {
+    return <ItemList items={items} />;
+  }
 }
-
-export default ItemListContainer

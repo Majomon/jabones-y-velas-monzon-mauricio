@@ -1,17 +1,12 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import NavBar from "./components/NavBar";
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer"
-/* import { ThemeProvider } from '@mui/material';
-import theme from "./MuiTheme"
-import NavBar from "./components/NavBar";
-import ItemListContainer from './components/ItemListContainer';
-import FetchContainer from './test/FetchContainer';
-import ActividadPromesas from "./test/ActividadPromesas"
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'; */
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from './components/Footer';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import Cart from "./components/Cart";
 
 
 
@@ -29,21 +24,29 @@ function App() {
             <ItemDetailContainer />
           </div>
         </ThemeProvider> */
+        <BrowserRouter> 
+        <NavBar />
 
-    <BrowserRouter>
-      {/* Aqui van los componentes que estan presentes en todas las rutas */}
-      <NavBar/>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+          <Routes>
+            <Route path="/" element={<ItemListContainer className="center"/>}/>
+            <Route path="/cart" element={<Cart className="center"/>}/>
+            <Route path="/category/:idcategory" element={<ItemListContainer className="center"/>}/>
+            <Route path="/product/:idproduct" element={<ItemDetailContainer className="center"/>}/>
+          </Routes>
+          <Footer />
+      </BrowserRouter>
 
-      <Routes>
-        <Route path="/" element={<ItemListContainer/>} />
-        <Route path="/Inicio" element={<ItemListContainer />} />
-        <Route path="/productos/:id" element={<ItemListContainer />} />
-        <Route path="/detalle/:id" element={<ItemDetailContainer />} />
-      </Routes>
-
-      {/* Aqui va el Footer, tambien afuera de las rutas*/}
-      <Footer />
-    </BrowserRouter>
   );
 }
 
