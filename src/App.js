@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart";
+import Test from "./test/Test";
 
 
 
@@ -39,6 +40,7 @@ function App() {
           pauseOnHover
         />
           <Routes>
+          <Route path="/test" element={<Test className="center"/>}/>
             <Route path="/" element={<ItemListContainer className="center"/>}/>
             <Route path="/cart" element={<Cart className="center"/>}/>
             <Route path="/category/:idcategory" element={<ItemListContainer className="center"/>}/>

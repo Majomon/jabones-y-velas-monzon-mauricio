@@ -13,7 +13,7 @@ import CartWidget from './CartWidget';
 import { Link as RouterLink } from 'react-router-dom';
 
 
-const pages = ['jabones', 'velas', 'blog', 'contacto'];
+const pages = ['jabones', 'velas', 'contacto'];
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);

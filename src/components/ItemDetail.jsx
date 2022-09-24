@@ -11,7 +11,7 @@ export default function ItemDetail({item}) {
 
 
     const onAdd = (cant) => {
-      toast.success(`Agregaste al carrito ${cant} 👌`, {
+      toast.success(`Agregaste al carrito ${cant} 👌 `, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
