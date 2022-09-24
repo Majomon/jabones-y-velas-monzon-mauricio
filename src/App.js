@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart";
 import Test from "./test/Test";
-
+import GenericContext from "./test/GenericContext";
 
 
 
@@ -25,9 +25,9 @@ function App() {
             <ItemDetailContainer />
           </div>
         </ThemeProvider> */
-        <BrowserRouter> 
+    <GenericContext>
+      <BrowserRouter>
         <NavBar />
-
         <ToastContainer
           position="top-right"
           autoClose={3000}
@@ -39,16 +39,16 @@ function App() {
           draggable
           pauseOnHover
         />
-          <Routes>
-          <Route path="/test" element={<Test className="center"/>}/>
-            <Route path="/" element={<ItemListContainer className="center"/>}/>
-            <Route path="/cart" element={<Cart className="center"/>}/>
-            <Route path="/category/:idcategory" element={<ItemListContainer className="center"/>}/>
-            <Route path="/product/:idproduct" element={<ItemDetailContainer className="center"/>}/>
-          </Routes>
-          <Footer />
+        <Routes>
+          <Route path="/test" element={<Test className="center" />} />
+          <Route path="/" element={<ItemListContainer className="center" />} />
+          <Route path="/cart" element={<Cart className="center" />} />
+          <Route path="/category/:idcategory" element={<ItemListContainer className="center" />} />
+          <Route path="/product/:idproduct" element={<ItemDetailContainer className="center" />} />
+        </Routes>
+        <Footer />
       </BrowserRouter>
-
+    </GenericContext>
   );
 }
 
