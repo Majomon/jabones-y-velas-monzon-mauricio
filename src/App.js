@@ -9,6 +9,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart";
 import Test from "./test/Test";
 import GenericContext from "./test/GenericContext";
+import TestAddToCart from "./test/TestAddToCart"
 
 
 
@@ -41,6 +42,7 @@ function App() {
         />
         <Routes>
           <Route path="/test" element={<Test className="center" />} />
+          <Route path="/TestAddToCart" element={<TestAddToCart className="center" />} />
           <Route path="/" element={<ItemListContainer className="center" />} />
           <Route path="/cart" element={<Cart className="center" />} />
           <Route path="/category/:idcategory" element={<ItemListContainer className="center" />} />
