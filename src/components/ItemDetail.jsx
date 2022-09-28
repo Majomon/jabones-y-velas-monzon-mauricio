@@ -4,14 +4,17 @@ import Container from '@mui/material/Container';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ItemCount from './ItemCount';
+import { useCart } from './CartContext';
 
 
 export default function ItemDetail({ item }) {
-  const [cant, setCant] = useState(1);
+  const [count, setCount] = useState(1)
+  const [compra, setCompra] = useState(false)
+  const { id, title, pictureUrl, price, description, alt, stock, initial } = item
+  const { addItem } = useCart()
 
-
-  const onAdd = (cant) => {
-    toast.success(`Agregaste al carrito ${cant} 👌 `, {
+  const onAdd = (count) => {
+    toast.success(`Agregaste al carrito ${count} 👌 `, {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -20,6 +23,17 @@ export default function ItemDetail({ item }) {
       draggable: true,
       progress: undefined,
     })
+
+    let purchase = {
+      id,
+      title,
+      price,
+      stock,
+      pictureUrl,
+      quantity: count
+    }
+    setCompra(true)
+    addItem(purchase)
   };
 
   return (
@@ -27,13 +41,12 @@ export default function ItemDetail({ item }) {
       <CssBaseline />
       <Container maxWidth="sm">
         <div className='prod-div'>
-          <img src={item.pictureUrl} alt={item.alt} className="prod-img" />
+          <img src={pictureUrl} alt={alt} className="prod-img" />
           <div>
-            <h2>{item.title}</h2>
-            <h4>${item.price}</h4>
-            <p>{item.description}</p>
-            <ItemCount stock={item.stock} initial={item.initial} onAdd={onAdd} count={cant} setCount={setCant} />
-
+            <h2>{title}</h2>
+            <h4>${price}</h4>
+            <p>{description}</p>
+            <ItemCount stock={stock} initial={initial} onAdd={onAdd} count={count} setCount={setCount} />
           </div>
         </div>
       </Container>

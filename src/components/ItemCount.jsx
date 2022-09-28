@@ -6,24 +6,24 @@ import { Stack } from "@mui/system";
 
 function ItemCount({ stock, initial, onAdd }) {
   const [showButton, setShowButton] = useState(false);
-  const [cant, setCant] = useState(initial);
+  const [count, setCount] = useState(initial);
   return (
     <div className="item-div">
       <div className="item-qty">
         <Button style={{ fontSize: '2rem  ' }} variant="text"
           onClick={() => {
-            if (cant > initial) {
-              setCant(cant - 1);
+            if (count > initial) {
+              setCount(count - 1);
             }
           }}
         >
           -
         </Button>
-        <p>{cant}</p>
+        <p>{count}</p>
         <Button style={{ fontSize: '2rem  ' }} variant="text"
           onClick={() => {
-            if (cant < stock) {
-              setCant(cant + 1);
+            if (count < stock) {
+              setCount(count + 1);
             }
           }}
         >
@@ -33,8 +33,8 @@ function ItemCount({ stock, initial, onAdd }) {
       {!showButton
         ? <Button variant="outlined"
           onClick={() => {
-            if (cant > 0) {
-              onAdd(cant);
+            if (count > 0) {
+              onAdd(count);
               setShowButton(true)
             }
           }}
