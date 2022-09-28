@@ -12,11 +12,10 @@ export default function Test() {
         alert(JSON.stringify(e))
     }
 
-    function handleKeyDown(e) {
+/*     function handleKeyDown(e) {
         console.log(e);
         //e.preventDefault(); //Lo que iba a ocurrir por defecto lo bloqueo.Ej: Cuando la recarga la pagina por el envio de un formulario
-    }
-
+    } */
 
     useEffect(() => {
         window.addEventListener("resize", handleResize)

@@ -15,6 +15,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export default function CartWidget() {
+  
     return (
     <IconButton aria-label="cart" component={RouterLink} to={`/cart`}>
       <StyledBadge badgeContent={2} color="secondary">
