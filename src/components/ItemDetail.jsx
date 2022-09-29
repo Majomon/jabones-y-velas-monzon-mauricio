@@ -8,12 +8,12 @@ import { useCart } from './CartContext';
 
 
 export default function ItemDetail({ item }) {
-  const [count, setCount] = useState(1)
+  const [cant, setCant] = useState(1)
   const { id, title, pictureUrl, price, description, alt, stock, initial } = item
   const { addItem } = useCart()
 
-  const onAdd = (count) => {
-    toast.success(`Agregaste al carrito ${count} 👌 `, {
+  const onAdd = (cant) => {
+    toast.success(`Agregaste al carrito ${cant} 👌 `, {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -29,7 +29,7 @@ export default function ItemDetail({ item }) {
       price,
       stock,
       pictureUrl,
-      quantity: count
+      quantity: cant
     }
     addItem(purchase)
   };
@@ -44,7 +44,7 @@ export default function ItemDetail({ item }) {
             <h2>{title}</h2>
             <h4>${price}</h4>
             <p>{description}</p>
-            <ItemCount stock={stock} initial={initial} onAdd={onAdd} count={count} setCount={setCount} />
+            <ItemCount stock={stock} initial={initial} onAdd={onAdd} count={cant} setCount={setCant} />
           </div>
         </div>
       </Container>
