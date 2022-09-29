@@ -29,7 +29,7 @@ const products = [{
   "stock": 15,
   "initial": 1,
   "price": 200,
-  "pictureUrl": "https://www.cuerpomente.com/medio/2019/07/03/jabon-casero_bb78caca_846x846.jpg",
+  "pictureUrl": "https://www.monederosmart.com/wp-content/uploads/2020/03/Khlapushyna-61088961_m-e1589822530363.jpg",
   "alt": "imgJabon"
 },
 {
@@ -73,7 +73,7 @@ const products = [{
   "stock": 5,
   "initial": 1,
   "price": 200,
-  "pictureUrl": "https://www.decoracionia.net/imagenes/2014/06/velas-artesanales-8.jpg",
+  "pictureUrl": "https://digimarkenet.com/wp-content/uploads/Velas-Artesanales-como-Negocio-620x520.jpg",
   "alt": "imagenVela"
 },
 {

@@ -9,7 +9,6 @@ import { useCart } from './CartContext';
 
 export default function ItemDetail({ item }) {
   const [count, setCount] = useState(1)
-  const [compra, setCompra] = useState(false)
   const { id, title, pictureUrl, price, description, alt, stock, initial } = item
   const { addItem } = useCart()
 
@@ -32,7 +31,6 @@ export default function ItemDetail({ item }) {
       pictureUrl,
       quantity: count
     }
-    setCompra(true)
     addItem(purchase)
   };
 
