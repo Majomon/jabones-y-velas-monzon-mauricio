@@ -9,7 +9,7 @@ import CartItem from './CartItem';
 function Cart() {
   //Forma larga de context
   //const {cart}=useContext(CartContext)
-  const {cart, cartTotal, clearCart} = useCart()
+  const {cart, cartTotal, clear} = useCart()
   console.log("Carrito",cart);
   return (
     <div className='center'>
@@ -18,11 +18,11 @@ function Cart() {
         {
         !cart.length
         ?<div className='item-div'><h3>Carrito vacio. Ve a comprar :D</h3><Button component={RouterLink} to={`/`}style={{ fontSize: '1rem' }} variant="contained">Ir a la tienda</Button></div> 
-        :<div className='item-div'>
+        :<div className='item-div containerItemsCart'>
           {cart.map((item)=> <CartItem key={item.id} item={item}/>)}
           <h3>Total: $ {cartTotal()}</h3>
           <div className='center'>
-            <Button style={{ fontSize: '0.8rem' }} variant="text" onClick={clearCart}>Vaciar carrito</Button>
+            <Button style={{ fontSize: '0.8rem' }} variant="text" onClick={clear}>Vaciar carrito</Button>
             <Button style={{ fontSize: '1rem' }} variant="contained" color="success" component={RouterLink} to={`/checkout`}>Finalizar compra</Button>
           </div>
         </div>

@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+import React, { useState } from 'react';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ItemCount from './ItemCount';
 import { useCart } from './CartContext';
+import ItemCount from './ItemCount';
 
 
 export default function ItemDetail({ item }) {
@@ -37,7 +36,6 @@ export default function ItemDetail({ item }) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
         <div className='prod-div'>
           <img src={pictureUrl} alt={alt} className="prod-img" />
           <div>
@@ -47,7 +45,6 @@ export default function ItemDetail({ item }) {
             <ItemCount stock={stock} initial={initial} onAdd={onAdd} count={cant} setCount={setCant} />
           </div>
         </div>
-      </Container>
     </React.Fragment>
   )
 }

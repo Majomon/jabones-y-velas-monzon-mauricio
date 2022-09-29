@@ -18,6 +18,17 @@ flex-wrap: wrap;
 justify-content: center;
 padding: auto;
 }
+.containerItemsCart{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  margin: 3rem;
+}
+
+.containerItemsCart img{
+ width: 20%;
+ height: 30vh;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
