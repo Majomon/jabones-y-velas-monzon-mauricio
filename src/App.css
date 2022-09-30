@@ -7,28 +7,49 @@
   pointer-events: none;
 }
 
-.item-qty{
+.item-qty {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.container-items{
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-padding: auto;
-}
-.containerItemsCart{
+
+.container-items {
   display: flex;
-  flex-direction: column;
-  padding: 3rem;
-  margin: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: auto;
 }
 
-.containerItemsCart img{
- width: 20%;
- height: 30vh;
+.containerItemsCart {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
+.outlined{
+  padding: 2rem;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem;
+  width:100%;
+  min-height: 40vh;
+}
+.cartItemCuadro{
+width: 80%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between; 
+}
+.containerItemsCart img {
+  width: 20%;
+  height: 30vh;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -54,6 +75,7 @@ padding: auto;
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail";
-import products from "../items";
 import { CircularProgress } from "@mui/material";
+import { collection, doc, getDoc } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { db } from "../firebase/firebase";
+import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer() {
   const { idproduct } = useParams();
@@ -11,36 +12,24 @@ export default function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getItem = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(products);
-      }, 2000);
-    });
-    if (!idproduct) {
-      getItem
-        .then((res) => {
-          setItem(res);
-        })
-        .catch((err) => {
-          console.log("No se pudo cargar");
-        })
-        .finally((loading) => {
-          setLoading(false);
-        });
-    } else {
-      getItem
-        .then((res) => {
-          setItem(res.find((item)=> item.id === `${idproduct}`));
-          
-        })
-        .catch((err) => {
-          console.log("No se pudo cargar");
-        })
-        .finally((loading) => {
-          setLoading(false);
-        });
-    }
+    //Le digo a mi base de datos en que coleccion esta
+    const productsCollection=collection(db,"products")
+    //Hacer una referencia que traiga el ID
+    const referenciaDoc=doc(productsCollection,idproduct)
+
+    //Traer el documento
+    getDoc(referenciaDoc)
+
+    .then((result)=>{
+      setItem({
+        id:result.id,
+        ...result.data()
+      })
+    })
+    .catch((error)=>console.log(error))
+    .finally(()=>setLoading(false))
   }, [idproduct]);
+
 return(
   <div>
   {loading ? <CircularProgress/> : <ItemDetail item={item} />}
