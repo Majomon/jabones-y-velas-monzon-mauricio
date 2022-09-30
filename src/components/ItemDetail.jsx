@@ -36,15 +36,15 @@ export default function ItemDetail({ item }) {
   return (
     <React.Fragment>
       <CssBaseline />
-        <div className='prod-div'>
-          <img src={pictureUrl} alt={alt} className="prod-img" />
-          <div>
-            <h2>{title}</h2>
-            <h4>${price}</h4>
-            <p>{description}</p>
-            <ItemCount stock={stock} initial={initial} onAdd={onAdd} count={cant} setCount={setCant} />
-          </div>
-        </div>
+      <div className='prod-div'>
+        <img src={pictureUrl} alt={alt} className="prod-img" />
+
+        <h2>{title}</h2>
+        <h4>${price}</h4>
+        <p>{description}</p>
+        <ItemCount stock={stock} initial={initial} onAdd={onAdd} count={cant} setCount={setCant} />
+
+      </div>
     </React.Fragment>
   )
 }

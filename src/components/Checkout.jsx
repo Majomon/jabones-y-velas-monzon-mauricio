@@ -25,8 +25,8 @@ export default function Checkout() {
     function finishSale(e) {
         e.preventDefault()
         if (Object.values(buyer).length !== 3) {
-            toast.error(`Te falta completar los datos`, {
-                position: "top-right",
+            toast.error(`🦄Completa todos los casilleros`, {
+                position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -42,13 +42,15 @@ export default function Checkout() {
                 total: cartTotal(),
                 date: serverTimestamp()
             }
+            
             const orderCollection = collection(db, 'orders')
-            addDoc(orderCollection, order).then((res) => {
-                setNewOrder(res.id);
-                setPurchase(true);
-                clear()
-                localStorage.clear()
-            })
+            addDoc(orderCollection, order)
+                .then((res) => {
+                    setNewOrder(res.id);
+                    setPurchase(true);
+                    clear()
+                    localStorage.clear()
+                })
                 .catch((err) => console.log(err))
 
         }

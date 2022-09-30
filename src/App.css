@@ -7,10 +7,27 @@
   pointer-events: none;
 }
 
+.prod-div{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 20vh;
+}
+.prod-div img{
+  width: 25vw;
+  height: 40vh;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+.item-div{
+  padding-bottom: 2rem;
+}
 .item-qty {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .container-items {
@@ -26,7 +43,9 @@
   padding: 1rem;
 }
 .outlined{
-  padding: 2rem;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  min-height: 85vh;
 }
 
 .cartItem {
