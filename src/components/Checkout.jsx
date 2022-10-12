@@ -63,18 +63,18 @@ export default function Checkout() {
                 height: "80vh"
             }}>
                 {!purchase
-                    ? <div>
+                    ? <div className='cajaCheckout'>
                         <h2>Completa tus datos personales</h2>
                         <form onSubmit={finishSale} className='item-div formularioCheckout'>
-                            <div>
+                            <div className='cajaInput'>
                                 <label htmlFor="name">Nombre y Apellido:</label>
                                 <input type="text" onChange={buyerData} name='name' placeholder='Ricardo Lopez' />
                             </div>
-                            <div>
+                            <div className='cajaInput'>
                                 <label htmlFor="tel">Telefono:</label>
                                 <input type="number" onChange={buyerData} name='tel' placeholder='1123456789' />
                             </div>
-                            <div>
+                            <div className='cajaInput'>
                                 <label htmlFor="email">E-mail:</label>
                                 <input type="email" onChange={buyerData} name='email' placeholder='test@gmail.com' />
                             </div>

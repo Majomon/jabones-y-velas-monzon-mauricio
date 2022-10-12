@@ -9,10 +9,12 @@ function CartItem({ item }) {
 
     <div className='cartItem'>
       <div className='cartItemCuadro'>
-        <img style={{ width: '30%', borderRadius:"10%" }} src={item.pictureUrl} alt={item.title} className="thumb-img" />
-        <p>Articulo: <span>{item.title}</span></p>
-        <p>Cantidad: <span>{item.quantity}</span></p>
-        <p>Precio por unidad: <span>${item.price}</span></p>
+        <img src={item.pictureUrl} alt={item.title} className="thumb-img" />
+        <div>
+          <p>Articulo: <span>{item.title}</span></p>
+          <p>Cantidad: <span>{item.quantity}</span></p>
+          <p>Precio por unidad: <span>${item.price}</span></p>
+        </div>
         <IconButton aria-label="delete" onClick={() => removeItem(item.id)}>
           <DeleteIcon fontSize="small" color="secondary" />
         </IconButton>

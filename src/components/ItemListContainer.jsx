@@ -33,7 +33,7 @@ export default function ItemListContainer() {
   }, [idcategory]);
 
   return (
-    <div className="center full-div">
+    <div className="cargando">
       <div>
       {loading ? <CircularProgress /> : <ItemList items={items} />}
       </div>
