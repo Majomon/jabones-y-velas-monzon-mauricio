@@ -1,6 +1,8 @@
-<h1>Hola</h1>
+<h1>Mi primer Ecommerce hecho con React :D</h1>
+<hr>
 
-1External Libraries
+<h2>External Libraries</h2>
+<hr>
 Firebase: Database and hosting.
 
 Toastify: Excellent library to show beautiful alerts.
