@@ -18,11 +18,11 @@ MUI: I consider Material UI one of the most completed, used libraries of UI tool
 ![React](https://img.shields.io/badge/react-%2018.2.0-success)
 
 
-![React-Icons](https://img.shields.io/badge/react--icons-%5E5.8.4-success)
+![React-Icons](https://img.shields.io/badge/react--icons-%5E5.10.2-success)
 
-![React-Router](https://img.shields.io/badge/react--router--dom-%5E6.4.0-success)
+![React-Router](https://img.shields.io/badge/react--router--dom-%5E6.3.0-success)
 
-![Firebase](https://img.shields.io/badge/firebase-%5E8.9.1-success)
+![Firebase](https://img.shields.io/badge/firebase-%5E9.10.0-success)
 
 ![JS](https://img.shields.io/badge/JavaScript-ES6-success)
 
