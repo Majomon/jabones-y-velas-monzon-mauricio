@@ -24,7 +24,7 @@ const Footer = () => {
                         justifyContent: 'center'
                     }}
                 >
-                    Javones y velas artesanales. © By Mabe 2022.
+                    Jabones y velas artesanales. © By Mabe 2022.
                 </Typography>
 
             
